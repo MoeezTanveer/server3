@@ -7,7 +7,6 @@ const cookieParser = require("cookie-parser");
 const orderRouter = require("./routes/orders");
 const braintreeRouter = require("./routes/braintree");
 const orderRoutes = require("./routes/orders"); 
-const { loginCheck } = require("../registration-server/middleware/auth");
 const path = require("path");
 const app = express();
 
@@ -19,7 +18,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/order", orderRouter);  // Protected Route for orders
-app.use("/api/braintree", loginCheck, braintreeRouter);  // Protected Route for payments
+app.use("/api/braintree", braintreeRouter);  // Protected Route for payments
 app.use("/uploads", express.static(path.join(__dirname, "../database-server-1/public/uploads")));
 // app.use("/orders", orderRoutes);
 // Database Connection
