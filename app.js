@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 });
 
 // Run Server
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8002;
 app.listen(PORT, () => {
   console.log(`Database Server 3 is running on port ${PORT}`);
 });
